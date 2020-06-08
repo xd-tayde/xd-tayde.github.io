@@ -1,157 +1,94 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-<title>郭东东的个人主页</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
-
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-
-<link rel="stylesheet" href="/css/style.css">
-
-<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
-
-
-</head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0,minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MCanvas</title>
+    <script>
+        (function(m, n) {
+            var o = navigator.userAgent,
+                p = /android|adr/gi.test(o),
+                j = /iphone|ipod|ipad/gi.test(o) && !p;
+            var k = n.documentElement;
+            var l = function() {
+                    var a = k.getBoundingClientRect().width || 320;
+                    var b = a / 320 * 20;
+                    b = b > 40 ? 40 : b;
+                    k.style.fontSize = b + "px";
+                    window.fontSize = b
+                },
+                i;
+            m.addEventListener("resize", function() {
+                clearTimeout(i);
+                i = setTimeout(l, 100)
+            }, false);
+            m.addEventListener("pageshow", function(a) {
+                if (a.persisted) {
+                    clearTimeout(i);
+                    i = setTimeout(l, 100)
+                }
+            }, false);
+            l()
+        })(window, document);
+    </script>
+<link href="css/main.css?013d8d7f" rel="stylesheet"></head>
 <body>
-    
-<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="/">
-                
-                <img src="/images/logo.png" alt="" height="28">
-                
-            </a>
-            <div class="navbar-burger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <h1 class="title">MCanvas</h1>
+    <h2 class="sub-title">mcanvas is a image handler plugin that can easily merge, crop, compress, <br/>filter the image and export a image of base64 finally. <a href="https://github.com/xd-tayde/mcanvas/blob/master/README.md" target="_blank">DOCS</a></h2>
+    <div class="left">
+        <div class="left__title">MERGE IMAGE: </div>
+        <div class="left__img">
+            <img class="origin js-result" src="http://mtapplet.meitudata.com/596c72073971d86b5128.jpg" alt="">
+        </div>
+        <div class="left__btns">
+            <span class="Button js-addImage">Add Image</span>
+            <span class="Button js-addWm">Watermark</span>
+            <span class="Button js-addText">Add Text</span>
+            <span class="Button js-addRect">Add Rect</span>
+            <span class="Button js-addCircle">Add Circle</span>
+            <span class="Button clear js-clear">Reset</span>
+        </div>
+    </div>
+    <div class="right">
+        <div class="right__crop">
+            <div class="right__crop__title">CROP IMAGE: </div>
+            <div class="right__crop__img js-cropResult"></div>
+            <span class="Button js-cropImage">Crop Image</span>
+        </div>
+        <div class="right__filter">
+            <div class="right__filter__title">FILTER IMAGE: </div>
+            <div class="right__filter__list">
+                <div class="right__filter__img">
+                    <div class="right__filter__btn js-filter" data-type="blur">Blur</div>
+                </div>
+                <div class="right__filter__img">
+                    <div class="right__filter__btn js-filter" data-type="flip">Flip</div>
+                </div>
+                <div class="right__filter__img">
+                    <div class="right__filter__btn js-filter" data-type="gray">Gray</div>
+                </div>
+                <div class="right__filter__img">
+                    <div class="right__filter__btn js-filter" data-type="mosaic">Mosaic</div>
+                </div>
+                <!-- <div class="right__filter__img">
+                    <div class="right__filter__btn js-filter" data-type="oil">Oil</div>
+                </div> -->
             </div>
         </div>
-        
-        <div class="navbar-menu navbar-end">
-            
-            
-            
+    </div>
+    <!-- <div class="bottom">
+        <img class="result js-result" src="" alt="" >
+    </div> -->
+    <div class="dialog js-dialog">
+        <div class="window">
+            <h3>Params:</h3>
+            <ul class="params js-params"></ul>
+            <span class="Button js-cancel">Cancel</span>
+            <span class="Button js-sure">OK</span>
         </div>
     </div>
-</nav>
-
-    <section class="section">
-    <div class="container">
-    
-        <article class="article content gallery" itemscope="" itemprop="blogPost">
-    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
-        
-            <a href="/2019/01/07/hello-world/" itemprop="url">Hello World</a>
-        
-    </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">
-            <time datetime="2019-01-07T01:45:52.233Z" itemprop="datePublished">1月 7 2019</time>
-        </span>
-        
-        
-        <span class="column is-narrow">
-            
-            
-            1 分钟 read (About 121 words)
-        </span>
-        
-    </div>
-    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
-    
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-    
-    </div>
-    
-    
-</article>
-
-
-
-
-    
-    
-    </div>
-</section>
-    <footer class="footer">
-    <div class="container">
-        <div class="columns content">
-            <div class="column is-narrow has-text-centered">
-                &copy; 2019 Tayde Guo&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
-            </div>
-            <div class="column is-hidden-mobile"></div>
-
-            
-            
-        </div>
-    </div>
-</footer>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
-
-<!-- test if the browser is outdated -->
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // plugin function, place inside DOM ready function
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        })
-    });
-</script>
-
-<script>
-    window.FontAwesomeConfig = {
-        searchPseudoElements: true
-    }
-    moment.locale("zh-CN");
-</script>
-
-
-
-<script src="/js/script.js"></script>
-
-    
-</body>
+    <script src="./zepto.min.js"></script>
+    <!-- <script src="http://h5.meitu.com/js/console.min.js"></script> -->
+<script src="web.js"></script></body>
 </html>
